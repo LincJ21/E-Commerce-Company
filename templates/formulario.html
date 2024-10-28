@@ -1,0 +1,26 @@
+<!-- templates/formulario.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Mensaje</title>
+    <link rel="stylesheet" href="/static/style.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body>
+    <h2>Contacta con Nosotros</h2>
+    <form id="contactForm">
+        <label for="name">Nombre:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Correo Electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Mensaje:</label><br>
+        <textarea id="message" name="message" required></textarea><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <script src="/static/script.js"></script> <!-- Corrige la ruta aquí -->
+</body>
+</html>
