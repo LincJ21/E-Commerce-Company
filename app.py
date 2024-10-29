@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from infrastructure.routers import email_router  # Importar otros routers según sea necesario
+from infrastructure.routers.suggestion_router import router as suggestion_router
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -16,8 +16,9 @@ app.mount("/static", StaticFiles(directory="templates/static"), name="static")
 # Configurar la carpeta de plantillas
 templates = Jinja2Templates(directory="templates")
 
-# Incluir los routers
-app.include_router(email_router.router)
+
+# Incluir routers
+app.include_router(suggestion_router)
 
 # Ruta principal para cargar el HTML en la raíz
 @app.get("/", response_class=HTMLResponse)
