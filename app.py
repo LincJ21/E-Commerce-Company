@@ -23,7 +23,15 @@ app.include_router(suggestion_router)
 # Ruta principal para cargar el HTML en la raíz
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
+    return templates.TemplateResponse("home.html", {"request": request})
+
+@app.get("/formulario", response_class=HTMLResponse)
+async def read_root(request: Request):
     return templates.TemplateResponse("formulario.html", {"request": request})
+
+@app.get("/carrito", response_class=HTMLResponse)
+async def read_root(request: Request):
+    return templates.TemplateResponse("carrito_compra.html", {"request": request})
 
 # Iniciar el servidor
 if __name__ == "__main__":
