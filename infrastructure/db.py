@@ -1,7 +1,10 @@
-from pymongo import MongoClient
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 import os
 
-# Conectar a MongoDB
-client = MongoClient(os.getenv("MONGODB_URI", "mongodb://localhost:27017"))
-db = client["e_commerce"]
-suggestions_collection = db["sugerencias"]
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@localhost/dbname")
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()

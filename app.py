@@ -3,14 +3,23 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from infrastructure.routers.suggestion_router import router as suggestion_router
+<<<<<<< Updated upstream
 from interface.auth.oauth_router import router as oauth_router
 from starlette.middleware.sessions import SessionMiddleware
+=======
+from infrastructure.routers import cart_router, router_location, router_product_type, product_router
+>>>>>>> Stashed changes
 from dotenv import load_dotenv
 load_dotenv()
 
 import uvicorn
-
 app = FastAPI()
+
+
+app.include_router(cart_router.router)
+app.include_router(router_location.router)
+app.include_router(router_product_type.router)
+app.include_router(product_router.router)
 
 # Montar la carpeta de archivos estáticos (JavaScript y CSS)
 app.mount("/static", StaticFiles(directory="templates/static"), name="static")
