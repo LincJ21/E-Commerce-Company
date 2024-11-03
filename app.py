@@ -40,6 +40,10 @@ async def read_root(request: Request):
 async def read_root(request: Request):
     return templates.TemplateResponse("carrito_compra.html", {"request": request})
 
+@app.get("/iniciar_sesion", response_class=HTMLResponse)
+async def read_root(request: Request):
+    return templates.TemplateResponse("iniciar_sesion.html", {"request": request})
+
 # Iniciar el servidor
 if __name__ == "__main__":
     uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)

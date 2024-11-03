@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}base{% endblock %}</title>
+    <link rel="icon" href="static/images/Dark-logo-circled.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00BFFF',
+                        secondary: '#008080',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .oauthButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+      /* margin: 50px auto 0 auto; */
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+    transition: all 250ms;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+    </style>
+
+    
+{% block styles %}{% endblock %}
+
+
+</head>
+<body class="min-h-screen bg-white">
+    <!-- Top Bar -->
+    <div class="sticky top-0 z-50 w-full bg-white shadow-sm">
+        <!-- Top Bar -->
+        <div class="w-full bg-primary text-white">
+            <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <span class="bg-secondary px-2 py-1 text-sm font-bold">HOT</span>
+                    <span class="text-sm">Free Express Shipping</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="flex gap-4">
+                        <a href="#" class="text-white hover:text-gray-200">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-gray-200">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Header -->
+        <header class="bg-white">
+            <div class="mx-auto max-w-7xl px-4 py-2 flex items-center gap-8 justify-between">
+                <a href="/home"><img src="static/images/Light-logo-removebg.png" alt="Bazaar" class="h-14 w-auto"></a>
+                <div class="hidden md:flex flex-1 max-w-xl items-center gap-4">
+                    <div class="relative flex-1">
+                        <input type="search" placeholder="Searching for..." class="w-full pl-10 pr-4 py-2 border rounded-md">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="/iniciar_sesion" class="p-2 hover:text-primary">
+                        <span class="sr-only">User account</span>
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </a>
+                    <a href="/carrito" class="p-2 hover:text-primary relative">
+                        <span class="sr-only">Shopping cart</span>
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-secondary text-white text-xs flex items-center justify-center">3</span>
+                    </a>
+                    <a href="#" class="oautherButton p-2 hover:text-primary relative">
+                        <span class="sr-only">Google Sign-in</span>
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" height="24" width="24">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+                            <path d="M1 1h22v22H1z" fill="none"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+    
+        <!-- Navigation -->
+        <nav class="border-t border-b bg-white">
+            <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+                <!-- Contenedor a la izquierda para "Categorías" y el menú principal -->
+                <div class="flex items-center gap-8 relative">
+                    <!-- Botón "Categorías" con dropdown -->
+                    <button id="categories-button" class="flex items-center gap-2 hover:text-primary">
+                        Categorías
+                        <!-- Flecha hacia abajo -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+        
+                    <!-- Dropdown de "Categorías" -->
+                    <div id="dropdown-menu" class="hidden absolute left-0 top-full mt-1 w-48 bg-white border rounded-md shadow-lg z-10">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Juguetes</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Deportivo</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gaming</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Muebles</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Moda</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Calzado</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Moda</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cámaras</a>
+                    </div>
+                </div>
+        
+                <!-- Menú principal para pantallas grandes (a la derecha de "Categorías") -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#" class="text-sm font-medium hover:text-primary">Ofertas</a>
+                    <a href="#" class="text-sm font-medium hover:text-primary">Vender</a>
+                    <a href="#" class="text-sm font-medium hover:text-primary">PQR</a>
+                    <a href="#" class="text-sm font-medium hover:text-primary">Quiénes somos</a>
+                </div>
+        
+                <!-- Botón de menú para dispositivos móviles, alineado a la derecha -->
+                <button id="menu-button" class="md:hidden flex items-center hover:text-primary">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        
+            <!-- Menú desplegable para dispositivos móviles -->
+            <div id="mobile-menu" class="hidden md:hidden flex flex-col items-start gap-2 px-4 py-3 bg-white border-t">
+                <div class="relative flex">
+                    <input type="search" placeholder="Searching for..." class="w-full pl-2 pr-4 py-2 border rounded-md">
+                        <button id="search-button">
+                            <svg class="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </button>
+                </div>
+                <a href="#" class="text-sm font-medium hover:text-primary">Ofertas</a>
+                <a href="#" class="text-sm font-medium hover:text-primary">Vender</a>
+                <a href="#" class="text-sm font-medium hover:text-primary">PQR</a>
+                <a href="#" class="text-sm font-medium hover:text-primary">Quiénes somos</a>
+            </div>
+        </nav>
+    </div>
+
+
+    <script>
+        // JavaScript para controlar la visibilidad del menú en dispositivos móviles
+        document.getElementById("menu-button").addEventListener("click", function () {
+            const mobileMenu = document.getElementById("mobile-menu");
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        // Mostrar/Ocultar el dropdown de "Categorías"
+        document.getElementById("categories-button").addEventListener("click", function (event) {
+        event.stopPropagation(); // Previene que el evento de clic se propague
+        const dropdownMenu = document.getElementById("dropdown-menu");
+        dropdownMenu.classList.toggle("hidden");
+        });
+
+        // Ocultar el dropdown si se hace clic fuera de él
+        window.addEventListener("click", function () {
+        const dropdownMenu = document.getElementById("dropdown-menu");
+        if (!dropdownMenu.classList.contains("hidden")) {
+            dropdownMenu.classList.add("hidden");
+        }
+        });
+
+    </script>
+
+    {% block content %}{% endblock %}
+   
+    <footer class="bg-secondary text-white py-4" style="text-align: center; font-weight: 400;">
+        <p>&copy; 2024 E-Commerce Company. Todos los derechos reservados.</p>
+    </footer>
+    
+</body>
+</html>
