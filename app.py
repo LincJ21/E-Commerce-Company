@@ -32,6 +32,10 @@ app.include_router(suggestion_router)
 async def read_root(request: Request):
     return templates.TemplateResponse("home.html", {"request": request})
 
+@app.get("/home", response_class=HTMLResponse)
+async def read_root(request: Request):
+    return templates.TemplateResponse("home.html", {"request": request})
+
 @app.get("/formulario", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse("formulario.html", {"request": request})
