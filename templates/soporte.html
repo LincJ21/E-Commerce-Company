@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}Soporte{% endblock %}
+
+{% block styles %}
+
+<style>
+    .support-content {
+        text-align: center;
+        background: #fff;
+        padding: 20px 40px;
+        padding-left: 100px;
+        padding-right: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .support-content h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .support-content a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .oauthButton {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        /* margin: 50px auto 0 auto; */
+        padding: auto 15px 15px auto;
+        width: 400px;
+        height: 40px;
+        border-radius: 5px;
+        border: 2px solid var(--main-color);
+        background-color: var(--bg-color);
+        box-shadow: 4px 4px var(--main-color);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--font-color);
+        cursor: pointer;
+        transition: all 250ms;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+  
+  .oauthButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #008080;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+  }
+  
+  .oauthButton:hover {
+    color: #e8e8e8;
+  }
+  
+  .oauthButton:hover::before {
+    width: 100%;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="support-content">
+        <h1 name="centro_ayuda">Centro de Ayuda</h1>
+        <p>Si tienes alguna petición, queja, reclamo o sugerencia</p>
+        <a href="/formulario" class="oauthButton">Ir</a>
+    </div>
+    <hr>
+    <div name="envio_entrega">
+      <div class="support-content">
+          <h1>Envio y entrega</h1>
+          <p>Cuando haces un pedido en nuestra tienda en línea, nos aseguramos de que el proceso de envío y entrega sea rápido y claro para ti. Así es como funciona:</p>
+      </div>
+      <div class="support-content" style="margin-top: 20px;">
+        <h1>1. Recibimos tu pedido</h1>
+        <p style="justify-self: baseline;">• Una vez que confirmas tu compra, nuestro sistema genera una orden con todos los detalles, como el producto que elegiste, la dirección de entrega y el método de envío que seleccionaste.</p>
+      </div>
+    </div>
+
+
+{% endblock %}

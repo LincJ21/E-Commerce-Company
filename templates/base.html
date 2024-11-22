@@ -37,6 +37,14 @@
     overflow: hidden;
     z-index: 1;
   }
+
+  .separator {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
     </style>
 
     
@@ -144,7 +152,7 @@
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#" class="text-sm font-medium hover:text-primary">Ofertas</a>
                     <a href="#" class="text-sm font-medium hover:text-primary">Vender</a>
-                    <a href="#" class="text-sm font-medium hover:text-primary">PQR</a>
+                    <a href="/formulario" class="text-sm font-medium hover:text-primary">PQRS</a>
                     <a href="#" class="text-sm font-medium hover:text-primary">Quiénes somos</a>
                 </div>
         
@@ -168,7 +176,7 @@
                 </div>
                 <a href="#" class="text-sm font-medium hover:text-primary">Ofertas</a>
                 <a href="#" class="text-sm font-medium hover:text-primary">Vender</a>
-                <a href="#" class="text-sm font-medium hover:text-primary">PQR</a>
+                <a href="#" class="text-sm font-medium hover:text-primary">PQRS</a>
                 <a href="#" class="text-sm font-medium hover:text-primary">Quiénes somos</a>
             </div>
         </nav>
@@ -201,6 +209,54 @@
 
     {% block content %}{% endblock %}
    
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-5 gap-8">
+                <!-- E-C Section -->
+                <div>
+                    <a href="/home"><img src="static/images/Dark-logo-removebg.png" alt="Bazaar" class="h-14 w-auto"></a>
+                </div>
+    
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Compañía</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+    
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Tienda</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Más vendidos</a></li>
+                        <li><a href="#" class="hover:text-white">Ofertas</a></li>
+                        <li><a href="#" class="hover:text-white">Tarjetas de regalo</a></li>
+                        <li><a href="#" class="hover:text-white">Categorías</a></li>
+                    </ul>
+                </div>
+    
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Soporte</h5>
+                    <ul class="space-y-2">
+                        <li><a href="/soporte#centro_ayuda" class="hover:text-white">Centro de Ayuda</a></li>
+                        <li><a href="#" class="hover:text-white">Envío y Entrega</a></li>
+                        <li><a href="#" class="hover:text-white">Devoluciones</a></li>
+                        <li><a href="#" class="hover:text-white">Estado del Pedido</a></li>
+                        <li><a href="#" class="hover:text-white">Opciones de Pago</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold text-white mb-4">Cuenta</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Historial de Pedidos</a></li>
+                        <li><a href="#" class="hover:text-white">Lista de Deseos</a></li>
+                        <li><a href="#" class="hover:text-white">Rastrear mi Pedido</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
     <footer class="bg-secondary text-white py-4" style="text-align: center; font-weight: 400;">
         <p>&copy; 2024 E-Commerce Company. Todos los derechos reservados.</p>
     </footer>

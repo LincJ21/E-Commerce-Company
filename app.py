@@ -36,6 +36,10 @@ app.include_router(oauth_router)
 async def read_root(request: Request):
     return templates.TemplateResponse("home.html", {"request": request})
 
+@app.get("/home", response_class=HTMLResponse)
+async def read_root(request: Request):
+    return templates.TemplateResponse("home.html", {"request": request})
+
 @app.get("/formulario", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse("formulario.html", {"request": request})
