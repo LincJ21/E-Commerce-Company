@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from domain.product_models import Product
 from infrastructure.db import Base
 from sqlalchemy import Column, String, Float
+from typing import List
 
 class ProductDB(Base):
     __tablename__ = "products"
@@ -13,6 +14,9 @@ class ProductDB(Base):
 
 def get_product(db: Session, product_id: str) -> ProductDB:
     return db.query(ProductDB).filter(ProductDB.id == product_id).first()
+
+def search_products(db: Session, name: str) -> list[ProductDB]:
+    return db.query(ProductDB).filter(ProductDB.name.ilike(f"%{name}%")).all()
 
 def create_product(db: Session, product: Product) -> ProductDB:
     db_product = ProductDB(**product.dict())

@@ -9,7 +9,7 @@ oauth.register(
     client_secret=CLIENT_SECRET,
     client_kwargs={
         'scope': 'email openid profile',
-        'redirect_uri': 'http://localhost:8000/auth',
+        'redirect_uri': 'http://127.0.0.1:8000/auth',
         'prompt': 'login'
     }
 )
