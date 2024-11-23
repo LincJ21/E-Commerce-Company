@@ -18,4 +18,4 @@ class Product(ProductBase):
     id_t_producto: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
