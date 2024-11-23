@@ -1,6 +1,7 @@
 from typing import Optional
 from pydantic import BaseModel
-from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy import Column, Integer, String, Float, ForeignKey
+from sqlalchemy.orm import relationship
 from infrastructure.db import Base
 
 # Modelos de dominio usando Pydantic
@@ -31,11 +32,35 @@ class Direccion(BaseModel):
 
 # Modelos de base de datos usando SQLAlchemy
 class TipoProductoDB(Base):
-    __tablename__ = "Tipo_Producto"
+    __tablename__ = "Tipo_Producto02"
 
-    id_compra = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String, index=True)
-    descripcion = Column(Text)
+    descripcion = Column(String)
+
+class ProductoDB(Base):
+    __tablename__ = "producto02"
+
+    id = Column(Integer, primary_key=True, index=True)
+    nombre = Column(String, index=True)
+    local_kw = Column(String, index=True)
+    precio = Column(Float)
+    descripcion = Column(String)
+    imagen_url = Column(String)
+    id_t_producto = Column(Integer, ForeignKey("Tipo_Producto02.id"))
+
+    tipo_producto = relationship("TipoProductoDB", back_populates="productos")
+    inventarios = relationship("InventarioDB", back_populates="producto")
+
+class InventarioDB(Base):
+    __tablename__ = "Inventario"
+
+    id = Column(Integer, primary_key=True, index=True)
+    id_producto = Column(Integer, ForeignKey("producto02.id"))
+    cantidad_disponible = Column(Integer)
+    ubicacion = Column(String)
+
+    producto = relationship("ProductoDB", back_populates="inventarios")
 
 class UbicacionDB(Base):
     __tablename__ = "Ubicacion"
@@ -50,15 +75,9 @@ class ClienteDB(Base):
 
     id_cliente = Column(Integer, primary_key=True, index=True)
     nombre = Column(String, index=True)
-    email = Column(String, unique=True, index=True)
+    email = Column(String, index=True)
     fecha_registro = Column(String)
     id_h_compras = Column(Integer)
 
-class DireccionDB(Base):
-    __tablename__ = "Direccion"
-
-    id_direccion = Column(Integer, primary_key=True, index=True)
-    ciudad = Column(String, index=True)
-    codigo_postal = Column(String, index=True)
-    barrio = Column(String, index=True)
-    detalle_adicional = Column(Text)
+TipoProductoDB.productos = relationship("ProductoDB", order_by=ProductoDB.id, back_populates="tipo_producto")
+ProductoDB.inventarios = relationship("InventarioDB", order_by=InventarioDB.id, back_populates="producto")

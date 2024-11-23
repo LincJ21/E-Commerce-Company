@@ -2,7 +2,7 @@
 
 from fastapi import APIRouter, Request, status
 from fastapi.responses import JSONResponse
-from use_case.email_service import send_email  # Importa el servicio de envío de correos
+from service.email_service import send_email  # Importa el servicio de envío de correos
 
 router = APIRouter()
 

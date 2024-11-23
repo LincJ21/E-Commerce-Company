@@ -1,11 +1,11 @@
 from sqlalchemy.orm import Session
-from domain.dbSQL_models import TipoProductoDB, TipoProducto
+from domain.dbSQL_models import TipoProducto, TipoProducto
 
 def get_tipo_producto(db: Session, id_compra: int):
-    return db.query(TipoProductoDB).filter(TipoProductoDB.id_compra == id_compra).first()
+    return db.query(TipoProducto).filter(TipoProducto.id_compra == id_compra).first()
 
 def create_tipo_producto(db: Session, tipo_producto: TipoProducto):
-    db_tipo_producto = TipoProductoDB(**tipo_producto.dict())
+    db_tipo_producto = TipoProducto(**tipo_producto.dict())
     db.add(db_tipo_producto)
     db.commit()
     db.refresh(db_tipo_producto)
