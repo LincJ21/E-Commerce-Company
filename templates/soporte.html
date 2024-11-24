@@ -74,28 +74,201 @@
   .oauthButton:hover::before {
     width: 100%;
   }
+
+  div > div > p {
+    text-align: justify;
+  }
+
+  .section {
+    position: relative;
+    scroll-margin-top: 200px;
+  }
 </style>
 
 {% endblock %}
 
 {% block content %}
 
+<div id="centro_ayuda" class="support-content section p-4">
+  <h1 class="font-bold">Centro de Ayuda</h1>
+  <p>Si tienes alguna petición, queja, reclamo o sugerencia</p>
+  <a href="/formulario" class="oauthButton text-blue-500" style="margin-top: 10px;">Ir</a>
+</div>
+<hr class="my-4">
+
+
+
+
+<div class="px-10">
+    <div id="envio_entrega" class="support-content section">
+        <p class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b">
+            Envío y entrega
+        </p>
+        <div class="px-6 py-4">
+            <p>Cuando haces un pedido en nuestra tienda en línea, nos aseguramos de que el proceso de envío y entrega sea rápido y claro para ti. Así es como funciona:</p>
+        </div>
+      </div>
+  <!-- Step 1 -->
+  <div class="support-content">
+      <button class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b" data-accordion-toggle="#step1">
+          1. Recibimos tu pedido
+          <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 01.707 1.707l-4 4a1 1 0 11-1.414-1.414L9.293 5.293A1 1 0 0110 5zm0 10a1 1 0 01-.707-1.707l4-4a1 1 0 111.414 1.414l-4 4A1 1 0 0110 15z" clip-rule="evenodd" />
+          </svg>
+      </button>
+      <div id="step1" class="hidden px-6 py-4">
+          <p>• Una vez que confirmas tu compra, nuestro sistema genera una orden con todos los detalles, como el producto que elegiste, la dirección de entrega y el método de envío que seleccionaste.</p>
+          <p>• Te enviamos un correo electrónico o mensaje confirmando que hemos recibido tu pedido, junto con tu número de seguimiento.</p>
+      </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="support-content">
+      <button class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b" data-accordion-toggle="#step2">
+          2. Preparamos tu pedido
+          <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 01.707 1.707l-4 4a1 1 0 11-1.414-1.414L9.293 5.293A1 1 0 0110 5zm0 10a1 1 0 01-.707-1.707l4-4a1 1 0 111.414 1.414l-4 4A1 1 0 0110 15z" clip-rule="evenodd" />
+          </svg>
+      </button>
+      <div id="step2" class="hidden px-6 py-4">
+          <p>• El producto que pediste es identificado en nuestro almacén. Allí, se recolecta, se empaca de forma segura y se le coloca una etiqueta con tu información de envío.</p>
+          <p>• Este paso es importante para asegurarnos de que el paquete llegue en perfectas condiciones a tu puerta.</p>
+      </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="support-content">
+      <button class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b" data-accordion-toggle="#step3">
+          3. Enviamos tu pedido
+          <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 01.707 1.707l-4 4a1 1 0 11-1.414-1.414L9.293 5.293A1 1 0 0110 5zm0 10a1 1 0 01-.707-1.707l4-4a1 1 0 111.414 1.414l-4 4A1 1 0 0110 15z" clip-rule="evenodd" />
+          </svg>
+      </button>
+      <div id="step3" class="hidden px-6 py-4">
+          <p>• Asignamos tu paquete a un transportista (puede ser nuestro equipo de logística o una empresa de mensajería asociada).</p>
+          <p>• Desde aquí, podrás rastrear tu paquete con el número de seguimiento que te enviamos por correo. Así siempre sabrás dónde está y cuándo llegará.</p>
+      </div>
+  </div>
+  
+  <div class="support-content">
+    <button class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b" data-accordion-toggle="#step4">
+        4. Te entregamos tu pedido
+        <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 5a1 1 0 01.707 1.707l-4 4a1 1 0 11-1.414-1.414L9.293 5.293A1 1 0 0110 5zm0 10a1 1 0 01-.707-1.707l4-4a1 1 0 111.414 1.414l-4 4A1 1 0 0110 15z" clip-rule="evenodd" />
+        </svg>
+    </button>
+    <div id="step4" class="hidden px-6 py-4">
+        <p>• Cuando el transportista llega a tu dirección, tú podrás recibir tu paquete. En algunos casos, se te puede pedir una firma o confirmación electrónica.</p>
+        <p>• Si prefieres evitar contacto directo, también contamos con opciones de entrega segura, como dejar el paquete en un lugar acordado.</p>
+    </div>
+  </div>
+
+  <div class="support-content">
+    <button class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b" data-accordion-toggle="#step5">
+        5. Estamos para ayudarte después de la entrega
+        <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 5a1 1 0 01.707 1.707l-4 4a1 1 0 11-1.414-1.414L9.293 5.293A1 1 0 0110 5zm0 10a1 1 0 01-.707-1.707l4-4a1 1 0 111.414 1.414l-4 4A1 1 0 0110 15z" clip-rule="evenodd" />
+        </svg>
+    </button>
+    <div id="step5" class="hidden px-6 py-4">
+        <p>• Una vez que confirmemos que tu pedido ha sido entregado, recibirás un mensaje de notificación.</p>
+        <p>• Si tienes algún problema, como un producto defectuoso o un error en tu pedido, no te preocupes: puedes iniciar un proceso de devolución o cambio fácilmente. Nosotros te guiaremos paso a paso para resolverlo.</p>
+    </div>
+  </div>
+</div>
+
+<!--Devoluciones-->
+
+<div class="px-10 py-2">
+    <div id="devoluciones" class="support-content section">
+        <p class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b">
+            Devoluciones: Fácil y Sin Complicaciones
+        </p>
+        <div class="px-6 py-4">
+            <p>Sabemos que a veces pueden surgir inconvenientes o simplemente cambias de opinión. Por eso, hemos diseñado un proceso de devoluciones sencillo y transparente para ti:        </p>
+        </div>
+      </div>
+    <!-- Step 1 -->
     <div class="support-content">
-        <h1 name="centro_ayuda">Centro de Ayuda</h1>
-        <p>Si tienes alguna petición, queja, reclamo o sugerencia</p>
-        <a href="/formulario" class="oauthButton">Ir</a>
+        <button class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b" data-accordion-toggle="#step1_1">
+            ¿Cuándo puedes devolver un producto?
+            <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 01.707 1.707l-4 4a1 1 0 11-1.414-1.414L9.293 5.293A1 1 0 0110 5zm0 10a1 1 0 01-.707-1.707l4-4a1 1 0 111.414 1.414l-4 4A1 1 0 0110 15z" clip-rule="evenodd" />
+            </svg>
+        </button>
+        <div id="step1_1" class="hidden px-6 py-4">
+            <p>Puedes solicitar una devolución si:</p>
+            <p>• El producto llegó dañado o defectuoso.</p>
+            <p>• Recibiste un producto incorrecto.</p>
+            <p>• Cambiaste de opinión y el producto está sin usar y en su empaque original.</p>
+        </div>
     </div>
-    <hr>
-    <div name="envio_entrega">
-      <div class="support-content">
-          <h1>Envio y entrega</h1>
-          <p>Cuando haces un pedido en nuestra tienda en línea, nos aseguramos de que el proceso de envío y entrega sea rápido y claro para ti. Así es como funciona:</p>
-      </div>
-      <div class="support-content" style="margin-top: 20px;">
-        <h1>1. Recibimos tu pedido</h1>
-        <p style="justify-self: baseline;">• Una vez que confirmas tu compra, nuestro sistema genera una orden con todos los detalles, como el producto que elegiste, la dirección de entrega y el método de envío que seleccionaste.</p>
+  
+    <!-- Step 2 -->
+    <div class="support-content">
+        <button class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b" data-accordion-toggle="#step1_2">
+            ¿Cómo solicitar una devolución?
+            <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 01.707 1.707l-4 4a1 1 0 11-1.414-1.414L9.293 5.293A1 1 0 0110 5zm0 10a1 1 0 01-.707-1.707l4-4a1 1 0 111.414 1.414l-4 4A1 1 0 0110 15z" clip-rule="evenodd" />
+            </svg>
+        </button>
+        <div id="step1_2" class="hidden px-6 py-4">
+            <p>¡Es muy fácil! Sigue estos pasos:</p>
+            <p>• Completa el formulario: Llena un breve <a href="/formulario" style="color:#008080;">formulario</a> indicando la guía del envio y el motivo de la devolución. Esto nos ayuda a mejorar.</p>
+            <p>• Recibe tu etiqueta de devolución: Te enviaremos una etiqueta para que puedas devolver el producto sin complicaciones.</p>
+        </div>
+    </div>
+  
+    <!-- Step 3 -->
+    <div class="support-content">
+        <button class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b" data-accordion-toggle="#step1_3">
+            Opciones para devolver tu producto
+            <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 01.707 1.707l-4 4a1 1 0 11-1.414-1.414L9.293 5.293A1 1 0 0110 5zm0 10a1 1 0 01-.707-1.707l4-4a1 1 0 111.414 1.414l-4 4A1 1 0 0110 15z" clip-rule="evenodd" />
+            </svg>
+        </button>
+        <div id="step1_3" class="hidden px-6 py-4">
+            <p>• Recogida en tu domicilio: Programaremos una recogida directamente en tu casa.</p>
+            <p>• Entrega en un punto de servicio: También puedes dejar el paquete en uno de nuestros puntos de recolección más cercanos.</p>
+        </div>
+    </div>
+    
+    <div class="support-content">
+      <button class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b" data-accordion-toggle="#step1_4">
+            ¿Qué pasa después?
+          <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 01.707 1.707l-4 4a1 1 0 11-1.414-1.414L9.293 5.293A1 1 0 0110 5zm0 10a1 1 0 01-.707-1.707l4-4a1 1 0 111.414 1.414l-4 4A1 1 0 0110 15z" clip-rule="evenodd" />
+          </svg>
+      </button>
+      <div id="step1_4" class="hidden px-6 py-4">
+        <p>• Una vez que recibamos el producto y confirmemos su estado, procesaremos tu reembolso o cambio, según prefieras.</p>
+        <p>• Reembolso: Dependiendo del método de pago que usaste, el dinero se reembolsará a tu cuenta en un plazo de 5-10 días hábiles.</p>
+        <p>• Cambio: Si prefieres, podemos enviarte un reemplazo rápidamente.</p>
       </div>
     </div>
+  
+    <div class="support-content">
+      <button class="w-full flex justify-between items-center text-lg font-semibold py-2 px-4 border-b" data-accordion-toggle="#step1_5">
+          5. ¿Qué pasa después?
+          <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 01.707 1.707l-4 4a1 1 0 11-1.414-1.414L9.293 5.293A1 1 0 0110 5zm0 10a1 1 0 01-.707-1.707l4-4a1 1 0 111.414 1.414l-4 4A1 1 0 0110 15z" clip-rule="evenodd" />
+          </svg>
+      </button>
+      <div id="step1_5" class="hidden px-6 py-4">
+          <p>• Si tienes dudas o necesitas más ayuda, nuestro equipo de atención al cliente está disponible para guiarte en todo el proceso. Queremos asegurarnos de que tengas una experiencia sin estrés.</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  document.querySelectorAll('[data-accordion-toggle]').forEach(button => {
+      button.addEventListener('click', () => {
+          const content = document.querySelector(button.dataset.accordionToggle);
+          content.classList.toggle('hidden');
+          button.querySelector('svg').classList.toggle('rotate-180');
+      });
+  });
+</script>
 
 
 {% endblock %}

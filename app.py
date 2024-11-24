@@ -69,6 +69,10 @@ def read_products(request: Request, db: Session = Depends(get_db)):
 async def read_formulario(request: Request):
     return templates.TemplateResponse("formulario.html", {"request": request})
 
+@app.get("/soporte", response_class=HTMLResponse)
+async def read_formulario(request: Request):
+    return templates.TemplateResponse("soporte.html", {"request": request})
+
 
 # Iniciar el servidor
 if __name__ == "__main__":
