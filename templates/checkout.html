@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-100 py-8">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-extrabold text-gray-900 mb-8">Checkout</h1>
+    
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
+      <div class="px-4 py-5 sm:p-6">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Resumen del Pedido</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3">Producto</th>
+                <th scope="col" class="px-6 py-3 text-right">Cantidad</th>
+                <th scope="col" class="px-6 py-3 text-right">Precio</th>
+                <th scope="col" class="px-6 py-3 text-right">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in carrito %}
+              <tr class="bg-white border-b">
+                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{{ item.nombre }}</td>
+                <td class="px-6 py-4 text-right">{{ item.cantidad }}</td>
+                <td class="px-6 py-4 text-right">COP {{ item.precio }}</td>
+                <td class="px-6 py-4 text-right">COP {{ item.precio * item.cantidad }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <tr class="font-semibold text-gray-900">
+                <td class="px-6 py-3 text-base" colspan="3">Total</td>
+                <td class="px-6 py-3 text-base text-right">COP {{ total }}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <form action="{{ url_for('invoice') }}" method="GET" class="bg-white shadow-lg rounded-lg overflow-hidden">
+      {% for item in carrito %}
+      <input type="hidden" name="carrito[{{ loop.index0 }}][id]" value="{{ item.id }}">
+      <input type="hidden" name="carrito[{{ loop.index0 }}][nombre]" value="{{ item.nombre }}">
+      <input type="hidden" name="carrito[{{ loop.index0 }}][precio]" value="{{ item.precio }}">
+      <input type="hidden" name="carrito[{{ loop.index0 }}][cantidad]" value="{{ item.cantidad }}">
+      {% endfor %}
+      <input type="hidden" name="total" value="{{ total }}">
+      
+      <div class="px-4 py-5 sm:p-6">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Información de Envío</h2>
+        <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+          <div class="sm:col-span-2">
+            <label for="name" class="block text-sm font-medium text-gray-700">Nombre completo</label>
+            <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+          </div>
+          <div class="sm:col-span-2">
+            <label for="address" class="block text-sm font-medium text-gray-700">Dirección</label>
+            <input type="text" id="address" name="address" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+          </div>
+          <div>
+            <label for="city" class="block text-sm font-medium text-gray-700">Ciudad</label>
+            <input type="text" id="city" name="city" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+          </div>
+          <div>
+            <label for="postal_code" class="block text-sm font-medium text-gray-700">Código postal</label>
+            <input type="text" id="postal_code" name="postal_code" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+          </div>
+        </div>
+      </div>
+      <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+        <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Continuar al Pago</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

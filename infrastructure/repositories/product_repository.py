@@ -8,6 +8,9 @@ def get_product_by_id(db: Session, product_id: int):
 def get_all_products(db: Session):
     return db.query(ProductoDB).all()
 
+def get_products_by_category(db: Session, category_id: int):
+    return db.query(ProductoDB).filter(ProductoDB.id_t_producto == category_id).all()
+
 def create_product(db: Session, product: schemas.ProductCreate):
     db_product = ProductoDB(
         nombre=product.nombre,

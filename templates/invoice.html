@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Factura - Orden {{ payment_details.order_id }}{% endblock %}
+
+{% block content %}
+<div class="bg-white min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden border border-[#00FFFF]">
+        <!-- Título -->
+        <div class="bg-[#008080] p-6 text-white">
+            <h1 class="text-3xl font-bold text-center">Invoice</h1>
+            <p class="text-center text-white/90">Order #{{ payment_details.order_id }}</p>
+        </div>
+        
+        <div class="p-6 space-y-8">
+            <!-- Detalles del cliente -->
+            <div class="border-b border-[#00FFFF] pb-6">
+                <h2 class="text-2xl font-semibold text-[#008080] mb-4">Customer Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-600">
+                    <p><span class="font-medium">Name:</span> {{ payment_details.name }}</p>
+                    <p><span class="font-medium">Address:</span> {{ payment_details.address }}</p>
+                    <p><span class="font-medium">City:</span> {{ payment_details.city }}</p>
+                    <p><span class="font-medium">Postal Code:</span> {{ payment_details.postal_code }}</p>
+                </div>
+            </div>
+
+            <!-- Detalles del pedido -->
+            <div class="border-b border-[#00FFFF] pb-6">
+                <h2 class="text-2xl font-semibold text-[#008080] mb-4">Order Details</h2>
+                <ul class="space-y-2">
+                    {% for item in payment_details.carrito %}
+                    <li class="flex justify-between items-center text-gray-600 py-2 {% if not forloop.last %}border-b border-[#00FFFF]/30{% endif %}">
+                        <span class="font-medium">{{ item.nombre }}</span>
+                        <span>${{ item.precio }} x {{ item.cantidad }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <h3 class="text-xl font-bold text-[#008080] mt-4 text-right">Total: ${{ payment_details.total }}</h3>
+            </div>
+
+            <!-- Código de pago -->
+            <div class="bg-[#00FFFF]/10 p-4 rounded-lg">
+                <h2 class="text-2xl font-semibold text-[#008080] mb-2">Payment Code</h2>
+                <p class="text-gray-600 text-lg">
+                    Your payment code is: <span class="text-[#008080] font-bold text-xl">{{ payment_details.payment_code }}</span>
+                </p>
+            </div>
+
+            <!-- Código QR -->
+            <div class="text-center">
+                <h2 class="text-2xl font-semibold text-[#008080] mb-4">QR Code</h2>
+                <div class="inline-block bg-white p-4 rounded-xl shadow-md border border-[#00FFFF]/30">
+                    <img class="mx-auto" src="/static/images/{{ payment_details.qr_code_filename }}" alt="QR Code">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
