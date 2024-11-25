@@ -53,6 +53,10 @@ async def read_root(request: Request):
 async def read_home(request: Request):
     return templates.TemplateResponse("home.html", {"request": request})
 
+@app.get("/about", response_class=HTMLResponse)
+async def read_home(request: Request):
+    return templates.TemplateResponse("About.html", {"request": request})
+
 # Dependency
 def get_db():
     db = SessionLocal()
@@ -73,11 +77,34 @@ async def read_formulario(request: Request):
     return templates.TemplateResponse("soporte.html", {"request": request})
 
 @app.get("/p", response_class=HTMLResponse)
-def read_products(request: Request, db: Session = Depends(get_db)):
-    products = get_all_products(db)
-    return templates.TemplateResponse("P.html", {"request": request, "products": products})
-
-
+def read_products(
+    request: Request,
+    db: Session = Depends(get_db),
+    category: str = Query(default=None)  # category es str porque puede venir como ""
+):
+    static_images_path = os.path.join("templates", "static", "images")
+    static_images = os.listdir(static_images_path) if os.path.exists(static_images_path) else []
+    
+    if not category:  # Si category es None o vacío
+        products = get_all_products(db)
+        selected_category = ""
+    else:
+        try:
+            category_int = int(category)  # Convertir category a entero para buscar
+            products = get_products_by_category(db, category_int)
+            selected_category = category_int
+        except ValueError:
+            raise HTTPException(status_code=400, detail="Categoría no válida")
+    
+    return templates.TemplateResponse(
+        "p.html",
+        {
+            "request": request,
+            "products": products,
+            "static_images": static_images,
+            "selected_category": selected_category,
+        },
+    )
 @app.get("/product/{product_id}", response_class=HTMLResponse)
 def product_detail(request: Request, product_id: int, db: Session = Depends(get_db)):
     product = get_product_by_id(db, product_id)

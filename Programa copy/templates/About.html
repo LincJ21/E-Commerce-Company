@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Sobre nosotros{% endblock %}
+
+{% block styles %}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+    <!-- About Us Section -->
+    <section class="max-w-7xl mx-auto px-4 py-16">
+        <h1 class="text-4xl font-bold text-primary text-center mb-8">Quiénes Somos</h1>
+        <p class="text-lg text-gray-600 text-center mb-12">
+            Somos un equipo dedicado a ofrecer las mejores soluciones para nuestros clientes. Conoce a las personas que hacen esto posible.
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="p-6 bg-white shadow-md rounded-lg">
+                <h2 class="text-2xl font-semibold text-secondary mb-4">Nuestra Misión</h2>
+                <p class="text-gray-700">
+                    En Ecommerce, nuestra misión es ofrecer una experiencia de compra única, 
+                    accesible y confiable para nuestros clientes, conectándolos con productos de calidad 
+                    a través de soluciones tecnológicas innovadoras.
+                </p>
+            </div>
+            <div class="p-6 bg-white shadow-md rounded-lg">
+                <h2 class="text-2xl font-semibold text-secondary mb-4">Nuestra Visión</h2>
+                <p class="text-gray-700">
+                    Ser líderes en el comercio electrónico, proporcionando valor y sostenibilidad, 
+                    mientras transformamos la manera en que las personas acceden a sus productos favoritos.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Team Member 1 -->
+            <div class="text-center bg-gray-100 p-6 rounded-lg shadow-md">
+                <img src="static/images/Perfil_LincJ.jpg" alt="Miembro 1" class="rounded-full w-24 h-24 mx-auto mb-4">
+                <h2 class="text-lg font-semibold text-gray-800">Josue de Jesús Torres Torres</h2>
+                <p class="text-sm text-gray-500">Desarrollo Backend</p>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="text-center bg-gray-100 p-6 rounded-lg shadow-md">
+                <img src="static/images/Perfil_Natalia.png" alt="Miembro 2" class="rounded-full w-24 h-24 mx-auto mb-4">
+                <h2 class="text-lg font-semibold text-gray-800">Natalia Orozco Ropero</h2>
+                <p class="text-sm text-gray-500">Desarrollo Backend</p>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="text-center bg-gray-100 p-6 rounded-lg shadow-md">
+                <img src="static/images/Perfil_carlos.png" alt="Miembro 3" class="rounded-full w-24 h-24 mx-auto mb-4">
+                <h2 class="text-lg font-semibold text-gray-800">Carlos David Rodríguez González</h2>
+                <p class="text-sm text-gray-500">Desarrollo Frontend</p>
+            </div>
+            <!-- Team Member 4 -->
+            <div class="text-center bg-gray-100 p-6 rounded-lg shadow-md">
+                <img src="static/images/Perfil_Cesar.png" alt="Miembro 4" class="rounded-full w-24 h-24 mx-auto mb-4">
+                <h2 class="text-lg font-semibold text-gray-800">César Fabricio Salas Ricaurte</h2>
+                <p class="text-sm text-gray-500">Documentacion</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">
+                © 2024 Nombre de la Empresa. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+
+{% endblock %}
