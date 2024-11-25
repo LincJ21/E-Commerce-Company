@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from infrastructure.db import SessionLocal
 from infrastructure.routers.suggestion_router import router as suggestion_router
 from interface.auth.oauth_router import router as oauth_router
+from infrastructure.routers.email_router import router as email_router
 from infrastructure.routers import cart_router, router_location, router_product_type, product_router
 from infrastructure.repositories.product_repository import get_all_products, get_product_by_id,  create_product, update_product, delete_product, get_products_by_category
 from domain import models, schemas
@@ -41,6 +42,7 @@ templates = Jinja2Templates(directory="templates")
 # Incluir routers
 app.include_router(suggestion_router)
 app.include_router(oauth_router)
+app.include_router(email_router)
 
 # Ruta principal para cargar el HTML en la raíz
 @app.get("/", response_class=HTMLResponse)
@@ -69,7 +71,6 @@ def read_product(local_kw: str = Query(...), db: Session = Depends(get_db)):
 @app.get("/soporte", response_class=HTMLResponse)
 async def read_formulario(request: Request):
     return templates.TemplateResponse("soporte.html", {"request": request})
-
 
 @app.get("/p", response_class=HTMLResponse)
 def read_products(
