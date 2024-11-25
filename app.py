@@ -75,7 +75,7 @@ async def read_formulario(request: Request):
 @app.get("/p", response_class=HTMLResponse)
 def read_products(request: Request, db: Session = Depends(get_db)):
     products = get_all_products(db)
-    return templates.TemplateResponse("P.html", {"request": request, "products": products, "static_images": static_images, "selected_category": selected_category})
+    return templates.TemplateResponse("P.html", {"request": request, "products": products})
 
 
 @app.get("/product/{product_id}", response_class=HTMLResponse)
