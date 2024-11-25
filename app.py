@@ -73,36 +73,10 @@ async def read_formulario(request: Request):
     return templates.TemplateResponse("soporte.html", {"request": request})
 
 @app.get("/p", response_class=HTMLResponse)
-def read_products(request: Request, category: str = Query(default=None), db: Session = Depends(get_db)):
+def read_products(request: Request, db: Session = Depends(get_db)):
     products = get_all_products(db)
-    #return templates.TemplateResponse("P.html", {"request": request, "products": products, "static_images": static_images, "selected_category": selected_category})
-    products = []
-    selected_category = ""
-    
-    if category:
-        try:
-            category_int = int(category)  # Intentar convertir la categoría a entero
-            products = get_products_by_category(db, category_int)
-            selected_category = category_int
-        except ValueError:
-            raise HTTPException(status_code=400, detail="Categoría no válida")
-    else:
-        products = get_all_products(db)  # Obtener todos los productos si no hay categoría
+    return templates.TemplateResponse("P.html", {"request": request, "products": products, "static_images": static_images, "selected_category": selected_category})
 
-    # Obtener imágenes estáticas si existen
-    static_images_path = os.path.join("templates", "static", "images")
-    static_images = os.listdir(static_images_path) if os.path.exists(static_images_path) else []
-
-    # Renderizar la plantilla
-    return templates.TemplateResponse(
-        "p.html",
-        {
-            "request": request,
-            "products": products,
-            "static_images": static_images,
-            "selected_category": selected_category
-        }
-    )
 
 @app.get("/product/{product_id}", response_class=HTMLResponse)
 def product_detail(request: Request, product_id: int, db: Session = Depends(get_db)):
