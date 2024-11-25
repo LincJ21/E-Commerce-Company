@@ -73,8 +73,9 @@ async def read_formulario(request: Request):
     return templates.TemplateResponse("soporte.html", {"request": request})
 
 @app.get("/p", response_class=HTMLResponse)
-async def read_products(request: Request, category: str = Query(default=None), db: Session = Depends(get_db)):
-    # Procesar la categoría
+def read_products(request: Request, category: str = Query(default=None), db: Session = Depends(get_db)):
+    products = get_all_products(db)
+    #return templates.TemplateResponse("P.html", {"request": request, "products": products, "static_images": static_images, "selected_category": selected_category})
     products = []
     selected_category = ""
     
@@ -99,7 +100,7 @@ async def read_products(request: Request, category: str = Query(default=None), d
             "request": request,
             "products": products,
             "static_images": static_images,
-            "selected_category": selected_category,
+            "selected_category": selected_category
         }
     )
 
