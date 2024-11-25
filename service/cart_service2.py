@@ -1,3 +1,4 @@
+'''
 from fpdf import FPDF
 import os
 from infrastructure.db_mongo import save_invoice
@@ -73,3 +74,4 @@ def process_payment_and_generate_invoice(invoice_data: dict) -> dict:
             "message": "Ocurrió un error al procesar la factura.",
             "error": str(e)
         }
+'''

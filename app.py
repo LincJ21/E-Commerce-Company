@@ -12,7 +12,7 @@ from infrastructure.routers import cart_router, router_location, router_product_
 from infrastructure.repositories.product_repository import get_all_products, get_product_by_id,  create_product, update_product, delete_product, get_products_by_category
 from domain import models, schemas
 from dotenv import load_dotenv
-from infrastructure.routers.invoice_router import router as invoice_router
+#from infrastructure.routers.invoice_router import router as invoice_router
 import os
 import uuid
 import qrcode
@@ -31,7 +31,7 @@ app.include_router(cart_router.router)
 app.include_router(router_location.router)
 app.include_router(router_product_type.router)
 app.include_router(product_router.router)
-app.include_router(invoice_router)
+#app.include_router(invoice_router)
 
 # Montar la carpeta de archivos estáticos (JavaScript y CSS)
 app.mount("/static", StaticFiles(directory="templates/static"), name="static")
