@@ -20,3 +20,5 @@ processing, inventory etc.
 ▪ Expose customer and product data via unified APIs. 
 ▪ Store consolidated data in a cloud data warehouse. 
 ▪ Leverage analytics and machine learning on harmonized data
+
+Pagina: https://e-commerce-company-9lgu.onrender.com
